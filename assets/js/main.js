@@ -5,7 +5,7 @@ function RecebeEventoForm(evento) {
   const Peso = document.querySelector(".input-valor");
   const Resultado = document.querySelector(".resultado");
   const Altura = document.querySelector(".input-valor1");
-  let calcula = Number(Peso.value) / Number(Altura.value) ** Number(Altura.value);
+  let calcula = Number(Peso.value) / Number(Altura.value) ** 2;
 
     let grau = ["Abaixo do peso", "Normal", "Sobrepeso", "Obesidade nivel 1", "Obesidade nivel 2", "Obesidade nivel 3"]
 
@@ -30,7 +30,7 @@ function RecebeEventoForm(evento) {
       grauDefinitivo = grau[5]
     }
   
-    if (Peso.value && Altura.value !== "" && calcula) {
+    if (Peso.value > 0 && Altura.value > 0 && !isNaN(calcula)) {
     Resultado.innerHTML = `Seu IMC é igual a ${calcula.toFixed(2)} e você está classificado em ${grauDefinitivo}`;
   }
   else{
