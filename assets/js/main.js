@@ -2,23 +2,12 @@ function tempoatual() {
   const DataAtual = document.querySelector(".datatual");
   const data = new Date();
   let mes = data.getMonth() + 1;
-  let dia = data.getDate();
-  let horas = data.getHours();
-  let minutos = data.getMinutes();
 
-  if (dia <= 9) {
-    dia = "0" + dia;
+  function zeroaesquerda(num) {
+    return num >= 10 ? num : `0${num}`;
   }
-  if (horas <= 9) {
-    horas = "0" + horas;
-  }
-  if (minutos <= 9) {
-    minutos = "0" + minutos;
-  }
-  if (mes <= 9) {
-    mes = "0" + mes;
-  }
-  let fulldata = `${dia}/${mes}/${data.getFullYear()} às ${horas}:${minutos}`;
+
+  let fulldata = `${zeroaesquerda(data.getDate())}/${zeroaesquerda(mes)}/${data.getFullYear()} às ${zeroaesquerda(data.getHours())}:${zeroaesquerda(data.getMinutes())}`;
   DataAtual.innerHTML = fulldata;
 }
 
@@ -65,3 +54,4 @@ function RecebeEventoForm(evento) {
 }
 addEventListener("submit", RecebeEventoForm);
 tempoatual();
+setInterval(tempoatual, 1000);
