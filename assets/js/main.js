@@ -13,8 +13,6 @@ function tempoatual() {
 
 function RecebeEventoForm(evento) {
   evento.preventDefault();
-  const style = document.querySelector(".style");
-  const Form = document.querySelector(".form");
   const Peso = document.querySelector(".input-valor");
   const Resultado = document.querySelector(".resultado");
   const Altura = document.querySelector(".input-valor1");
